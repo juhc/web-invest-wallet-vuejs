@@ -11,7 +11,7 @@
             <div class="general-information">
                 <ChartDoughnut :data="getDataset" :topShares="getTopPrecent" class="chart-doughnut"></ChartDoughnut>
                 <div class="general-totals">
-                    <div class="totals-text">Общий доход:
+                    <div class="totals-text"><span class="totals-header">Общий доход:</span>
                         <Transition mode="out-in" name="total">
                             <span id="totalProfit" class="totals-sum" :key="totalProfit"
                                 :class="[this.totalProfit > 0 ? 'profit-color' : 'disprofit-color']">
@@ -19,7 +19,7 @@
                             </span>
                         </Transition>
                     </div>
-                    <div class="totals-text">Общая стоимость продажи:
+                    <div class="totals-text"><span class="totals-header">Общая стоимость продажи:</span>
                         <Transition mode="out-in" name="total">
                             <span id="totalSum" class="totals-sum" :key="totalSellSum">{{
                                 commaSeparateNumber(this.totalSellSum)
@@ -68,7 +68,7 @@ export default defineComponent({
     methods: {
         async fetchShares() {
             this.isLoadingShares = true;
-            let url = 'https://' + window.location.hostname + ':5000/api/get-shares';
+            let url = 'http://' + window.location.hostname + ':5000/api/get-shares';
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -168,25 +168,96 @@ export default defineComponent({
 </script>
 
 <style scoped>
+@media (min-width: 1280px) {
+    main {
+        max-width: 1280px;
+        justify-content: center;
+    }
+
+    .general-information {
+        grid-template-columns: 3fr 1fr;
+    }
+
+    .general-totals {
+        grid-row: 1;
+        grid-column: end;
+        align-items: end;
+    }
+
+    .totals-text {
+        font-size: 24px;
+    }
+
+    .totals-sum {
+        margin-left: 5px;
+    }
+
+    .fetch-error span {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        max-width: 380px;
+    }
+
+    .general-information {
+        grid: 200px 650px / 1fr;
+    }
+
+    .general-totals {
+        grid-row: 1;
+    }
+
+    .chart-doughnut {
+        grid-row: 2;
+        margin-top: 45px;
+    }
+
+    .totals-text {
+        font-size: 24px;
+        border: 2px solid #41b88332;
+        border-radius: 10px;
+        display: grid;
+        min-width: 360px;
+        grid-template-rows: 25px 30px;
+        padding: 10px;
+    }
+
+    .totals-header {
+        font-size: 16px;
+    }
+
+    .totals-sum {
+        background-color: #41b88332;
+        padding: 0 5px;
+    }
+
+    .totals-text {
+        font-size: 20px;
+    }
+
+    .fetch-error span {
+        text-align: center;
+        font-size: 20px;
+    }
+}
+
 main {
     display: flex;
-    justify-content: center;
     margin: 25px auto;
-    max-width: 1280px;
     width: 100%;
 }
 
 .general-information {
     display: grid;
-    grid-template-columns: 3fr 1fr;
 }
 
 .general-totals {
     margin: auto;
-    grid-column: end;
     display: flex;
     flex-direction: column;
-    align-items: end;
     row-gap: 25px;
 }
 
@@ -196,10 +267,6 @@ main {
 
 .chart-doughnut {
     width: 100%;
-}
-
-.totals-text {
-    font-size: 24px;
 }
 
 .totals-sum {
@@ -238,6 +305,5 @@ main {
 
 .fetch-error span {
     margin-top: 25px;
-    font-size: 24px;
 }
 </style>

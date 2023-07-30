@@ -65,8 +65,62 @@ export default {
 </script>
 
 <style scoped>
+@media (min-width: 1280px) {
+    thead td {
+        padding: 20px 12px;
+    }
+
+    tbody td {
+        padding: 12px;
+    }
+
+    table {
+        table-layout: fixed;
+    }
+
+    .up-sort::after {
+        content: '▲';
+        margin-left: 10px;
+        font-size: 14px;
+    }
+
+    .down-sort::after {
+        content: '▼';
+        margin-left: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    thead td {
+        padding: 8px 2px;
+    }
+
+    table {
+        font-size: 12px;
+        position: absolute;
+        right: 0px;
+        left: 0px;
+    }
+
+    tbody td {
+        padding: 2px;
+    }
+
+    .up-sort::after {
+        content: '▲';
+        margin-left: 4px;
+        font-size: 10px;
+    }
+
+    .down-sort::after {
+        content: '▼';
+        margin-left: 4px;
+        font-size: 10px;
+    }
+}
+
 table {
-    table-layout: fixed;
     border-collapse: collapse;
     border-spacing: 2px;
     width: 100%;
@@ -77,7 +131,6 @@ thead {
 }
 
 thead td {
-    padding: 20px 12px;
     font-weight: 700;
 }
 
@@ -98,10 +151,6 @@ tbody tr:hover .table_share-name {
     color: white;
 }
 
-tbody td {
-    padding: 12px;
-}
-
 .table_share-name {
     color: #b3b3b3;
     transition: color 0.5s;
@@ -118,14 +167,10 @@ thead td span:hover {
 
 .up-sort::after {
     content: '▲';
-    margin-left: 10px;
-    font-size: 14px;
 }
 
 .down-sort::after {
     content: '▼';
-    margin-left: 10px;
-    font-size: 14px;
 }
 
 .font-family-roboto-mono {
