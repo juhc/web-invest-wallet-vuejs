@@ -92,7 +92,7 @@ export default {
 
   .shares {
     margin: 0 auto;
-    margin-top: 25px;
+    margin-top: 35px;
   }
 
   .chart-doughnut {
@@ -103,6 +103,8 @@ export default {
 
   .top-shares-header {
     font-size: 20px;
+    background-color: #212529;
+    padding: 2px 5px;
   }
 }
 

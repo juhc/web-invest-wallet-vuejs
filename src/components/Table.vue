@@ -26,6 +26,11 @@
                             :class="[modelValue === 'expected_yield' ? 'up-sort' : modelValue === '_expected_yield' ? 'down-sort' : '']">Доходность,
                             ₽</span>
                     </td>
+                    <td>
+                        <span @click="changeSort('percent_yield')"
+                            :class="[modelValue === 'percent_yield' ? 'up-sort' : modelValue === '_percent_yield' ? 'down-sort' : '']">Доходность,
+                            %</span>
+                    </td>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +42,9 @@
                     <td class="font-family-roboto-mono"
                         :class="[share.expected_yield >= 0 ? 'profit-color' : 'disprofit-color']">{{
                             share.expected_yield.toFixed(2) }}</td>
+                    <td class="font-family-roboto-mono"
+                        :class="[share.percent_yield >= 0 ? 'profit-color' : 'disprofit-color']">{{
+                            share.percent_yield.toFixed(2) }}%</td>
                 </tr>
             </tbody>
         </table>
