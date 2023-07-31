@@ -77,11 +77,11 @@ export default {
 <style scoped>
 @media (min-width: 1280px) {
     thead td {
-        padding: 20px 12px;
+        padding: 20px 10px;
     }
 
     tbody td {
-        padding: 12px;
+        padding: 10px;
     }
 
     table {
