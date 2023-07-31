@@ -68,7 +68,7 @@ export default defineComponent({
     methods: {
         async fetchShares() {
             this.isLoadingShares = true;
-            let url = 'http://' + window.location.hostname + ':5000/api/get-shares';
+            let url = 'https://' + window.location.hostname + ':5000/api/get-shares';
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
