@@ -199,7 +199,7 @@ export default defineComponent({
 
 @media (max-width: 480px) {
     main {
-        max-width: 360px;
+        max-width: 320px;
     }
     .general-information {
         grid: 200px 650px / 1fr;
@@ -219,7 +219,7 @@ export default defineComponent({
         border: 2px solid #41b88332;
         border-radius: 10px;
         display: grid;
-        min-width: 360px;
+        min-width: 320px;
         grid-template-rows: 25px 30px;
         padding: 10px;
     }
