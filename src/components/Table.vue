@@ -1,44 +1,46 @@
 <template>
-    <table>
-        <thead>
-            <tr>
-                <td>
-                    <span @click="changeSort('name')"
-                        :class="[modelValue === 'name' ? 'up-sort' : modelValue === '_name' ? 'down-sort' : '']">Название</span>
-                </td>
-                <td>
-                    <span @click="changeSort('average_buy_price')"
-                        :class="[modelValue === 'average_buy_price' ? 'up-sort' : modelValue === '_average_buy_price' ? 'down-sort' : '']">Средняя
-                        цена покупки, ₽</span>
-                </td>
-                <td>
-                    <span @click="changeSort('quantity')"
-                        :class="[modelValue === 'quantity' ? 'up-sort' : modelValue === '_quantity' ? 'down-sort' : '']">Количество</span>
-                </td>
-                <td>
-                    <span @click="changeSort('sell_sum')"
-                        :class="[modelValue === 'sell_sum' ? 'up-sort' : modelValue === '_sell_sum' ? 'down-sort' : '']">Сумма
-                        продажи, ₽</span>
-                </td>
-                <td>
-                    <span @click="changeSort('expected_yield')"
-                        :class="[modelValue === 'expected_yield' ? 'up-sort' : modelValue === '_expected_yield' ? 'down-sort' : '']">Доходность,
-                        ₽</span>
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="share in shares" :key="share.name">
-                <td class="table_share-name">{{ share.name }}</td>
-                <td class="font-family-roboto-mono">{{ share.average_buy_price.toFixed(2) }}</td>
-                <td class="font-family-roboto-mono">{{ share.quantity }}</td>
-                <td class="font-family-roboto-mono">{{ share.sell_sum.toFixed(2) }}</td>
-                <td class="font-family-roboto-mono"
-                    :class="[share.expected_yield >= 0 ? 'profit-color' : 'disprofit-color']">{{
-                        share.expected_yield.toFixed(2) }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        <span @click="changeSort('name')"
+                            :class="[modelValue === 'name' ? 'up-sort' : modelValue === '_name' ? 'down-sort' : '']">Название</span>
+                    </td>
+                    <td>
+                        <span @click="changeSort('average_buy_price')"
+                            :class="[modelValue === 'average_buy_price' ? 'up-sort' : modelValue === '_average_buy_price' ? 'down-sort' : '']">Средняя
+                            цена покупки, ₽</span>
+                    </td>
+                    <td>
+                        <span @click="changeSort('quantity')"
+                            :class="[modelValue === 'quantity' ? 'up-sort' : modelValue === '_quantity' ? 'down-sort' : '']">Количество</span>
+                    </td>
+                    <td>
+                        <span @click="changeSort('sell_sum')"
+                            :class="[modelValue === 'sell_sum' ? 'up-sort' : modelValue === '_sell_sum' ? 'down-sort' : '']">Сумма
+                            продажи, ₽</span>
+                    </td>
+                    <td>
+                        <span @click="changeSort('expected_yield')"
+                            :class="[modelValue === 'expected_yield' ? 'up-sort' : modelValue === '_expected_yield' ? 'down-sort' : '']">Доходность,
+                            ₽</span>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="share in shares" :key="share.name">
+                    <td class="table_share-name">{{ share.name }}</td>
+                    <td class="font-family-roboto-mono">{{ share.average_buy_price.toFixed(2) }}</td>
+                    <td class="font-family-roboto-mono">{{ share.quantity }}</td>
+                    <td class="font-family-roboto-mono">{{ share.sell_sum.toFixed(2) }}</td>
+                    <td class="font-family-roboto-mono"
+                        :class="[share.expected_yield >= 0 ? 'profit-color' : 'disprofit-color']">{{
+                            share.expected_yield.toFixed(2) }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 
 <script>
@@ -93,18 +95,16 @@ export default {
 
 @media (max-width: 480px) {
     thead td {
-        padding: 8px 2px;
+        padding: 8px;
     }
 
     table {
         font-size: 12px;
-        position: absolute;
-        right: 0px;
-        left: 0px;
+        width: 100%;
     }
 
     tbody td {
-        padding: 2px;
+        padding: 8px;
     }
 
     .up-sort::after {
@@ -117,6 +117,11 @@ export default {
         content: '▼';
         margin-left: 4px;
         font-size: 10px;
+    }
+
+    .table {
+        overflow-x: scroll;
+        width: 100%;
     }
 }
 

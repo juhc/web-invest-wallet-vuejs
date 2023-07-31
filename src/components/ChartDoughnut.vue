@@ -75,6 +75,11 @@ export default {
   .top-shares-header {
     font-size: 24px;
   }
+
+  .chart-doughnut {
+    width: 250px;
+    height: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -82,12 +87,11 @@ export default {
     display: flex;
     flex-direction: column;
     column-gap: 35px;
-    padding: 15px 25px;
-    border-radius: 20px;
     margin-top: 25px;
   }
 
   .shares {
+    margin: 0 auto;
     margin-top: 25px;
   }
 

@@ -19,7 +19,7 @@
                             </span>
                         </Transition>
                     </div>
-                    <div class="totals-text"><span class="totals-header">Общая стоимость продажи:</span>
+                    <div class="totals-text"><span class="totals-header">Общая стоимость портфеля:</span>
                         <Transition mode="out-in" name="total">
                             <span id="totalSum" class="totals-sum" :key="totalSellSum">{{
                                 commaSeparateNumber(this.totalSellSum)
@@ -199,9 +199,8 @@ export default defineComponent({
 
 @media (max-width: 480px) {
     main {
-        max-width: 380px;
+        max-width: 360px;
     }
-
     .general-information {
         grid: 200px 650px / 1fr;
     }
@@ -241,6 +240,12 @@ export default defineComponent({
     .fetch-error span {
         text-align: center;
         font-size: 20px;
+    }
+    
+    .table-shares {
+        position: absolute;
+        left: 0;
+        right: 0;
     }
 }
 
