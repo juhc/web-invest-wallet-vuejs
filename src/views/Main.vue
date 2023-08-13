@@ -37,13 +37,11 @@
 import { defineComponent } from 'vue';
 import Table from '@/components/Table.vue'
 import ChartDoughnut from '@/components/ChartDoughnut.vue'
-import LoadingAnimation from '@/components/UI/LoadingAnimation.vue'
 
 export default defineComponent({
     components: {
         Table,
-        ChartDoughnut,
-        LoadingAnimation
+        ChartDoughnut
     },
     mounted() {
         let fetchShares = this.fetchShares;
@@ -293,7 +291,7 @@ main {
 }
 
 .server-error {
-    background-image: url('../assets/404.png');
+    background-image: url('../assets/504.png');
     width: 256px;
     height: 256px;
     background-size: cover;

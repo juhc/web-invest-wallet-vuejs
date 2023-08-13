@@ -6,6 +6,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: 'LoadingAnimation'
+}
+</script>
+
 <style scoped>
 .circle {
     position: absolute;
